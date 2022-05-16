@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.STDDAO;
 import dto.STDDTO;
-import dto.StudentDTO;
+
 
 @WebServlet("*.std")
 public class STDController extends HttpServlet {
@@ -27,14 +27,13 @@ public class STDController extends HttpServlet {
 				int math = Integer.parseInt(request.getParameter("math"));
 				dao.insert(new STDDTO(0, name, kor, eng, math, null));
 				response.sendRedirect("index.jsp");
-				
-<<<<<<< HEAD
+
 			}else if(uri.equals("/udtList.std")) {
 				List<STDDTO> list =  dao.list();
 				request.setAttribute("list", list);
 				
 				request.getRequestDispatcher("/update.jsp");
-			}else if(uri.equals("/udtList.std")) {
+			}else if(uri.equals("/update.std")) {
 				int sid = Integer.parseInt(request.getParameter("sid"));
 				String name = request.getParameter("name");
 				int kor = Integer.parseInt(request.getParameter("kor"));
@@ -42,8 +41,7 @@ public class STDController extends HttpServlet {
 				int math = Integer.parseInt(request.getParameter("math"));
 				int result = dao.update(sid, name, kor, eng, math);
 				response.sendRedirect("/udtList.std");
-=======
-
+				
 			} else if (uri.equals("/list.std")) {
 				List<STDDTO> list = dao.list();
 				request.setAttribute("list", list);
@@ -56,7 +54,6 @@ public class STDController extends HttpServlet {
 				dao.del(sid);
 				response.sendRedirect("/index.jsp");
 				
->>>>>>> e0cfb7834c156143122cb7071765b4def1ebc94f
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
