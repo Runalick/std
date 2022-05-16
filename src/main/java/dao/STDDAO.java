@@ -1,11 +1,9 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
@@ -84,7 +82,7 @@ public class STDDAO {
 	public int update(int sid,String name,int kor,int eng,int math)throws Exception{
 		String sql = "update student set name=?,kor=?,eng=?,math=? where sid=?";
 		
-				try (Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "kh", "kh");
+				try (Connection con = this.getConnection();
 						PreparedStatement stat = con.prepareStatement(sql);) {
 					stat.setString(1, name);
 					stat.setInt(2, kor);
