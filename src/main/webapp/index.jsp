@@ -52,7 +52,7 @@ table button{
 			location.href="delList.std";
 		})
 		$("#update").on("click",function(){
-			location.href="udtList.std";
+			location.href="/udtList.std";
 		})
 		
 		
