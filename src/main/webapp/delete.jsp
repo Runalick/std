@@ -36,7 +36,7 @@
 		</c:forEach>
 		
 		<tr>
-			<form action='delete.menu'>
+			<form action='delete.std'>
 				<td colspan=6 align=center>
 				<input type=text name=sid placeholder='Input sid to delete'>
 				<input type="submit" id=delete value="DELETE">
