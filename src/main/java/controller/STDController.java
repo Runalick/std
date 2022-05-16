@@ -32,7 +32,7 @@ public class STDController extends HttpServlet {
 				List<STDDTO> list =  dao.list();
 				request.setAttribute("list", list);
 				
-				request.getRequestDispatcher("/update.jsp");
+				request.getRequestDispatcher("/update.jsp").forward(request, response);
 			}else if(uri.equals("/update.std")) {
 				int sid = Integer.parseInt(request.getParameter("sid"));
 				String name = request.getParameter("name");
