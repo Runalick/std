@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,6 +27,12 @@ public class STDController extends HttpServlet {
 				dao.insert(new STDDTO(0, name, kor, eng, math, null));
 				response.sendRedirect("index.jsp");
 				
+
+			} else if (uri.equals("/list.std")) {
+				List<STDDTO> list = dao.list();
+				request.setAttribute("list", list);
+				request.getRequestDispatcher("listView.jsp").forward(request, response);
+
 			}else if (uri.equals("/delete.std")) {
 				
 				int sid = Integer.parseInt(request.getParameter("sid"));
