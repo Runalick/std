@@ -7,34 +7,33 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class STDController
- */
-@WebServlet("/STDController")
-public class STDController extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public STDController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+import dao.STDDAO;
+import dto.STDDTO;
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+@WebServlet("*.std")
+public class STDController extends HttpServlet {
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String uri = request.getRequestURI();
+		STDDAO dao = new STDDAO();
+		try {
+			if (uri.equals("/add.std")) {
+				String name = request.getParameter("name");
+				int kor = Integer.parseInt(request.getParameter("kor"));
+				int eng = Integer.parseInt(request.getParameter("eng"));
+				int math = Integer.parseInt(request.getParameter("math"));
+				dao.insert(new STDDTO(0, name, kor, eng, math, null));
+				response.sendRedirect("index.jsp");
+				
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			response.sendRedirect("error.html");
+		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
