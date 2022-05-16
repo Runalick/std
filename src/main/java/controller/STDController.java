@@ -31,7 +31,7 @@ public class STDController extends HttpServlet {
 			} else if (uri.equals("/list.std")) {
 				List<STDDTO> list = dao.list();
 				request.setAttribute("list", list);
-				request.getRequestDispatcher("listView.jsp").forward(request, response);
+				request.getRequestDispatcher("listview.jsp").forward(request, response);
 
 			}else if (uri.equals("/delete.std")) {
 				
@@ -40,7 +40,16 @@ public class STDController extends HttpServlet {
 				dao.del(sid);
 				response.sendRedirect("/index.jsp");
 				
+			}else if(uri.equals("/delList.std")) {
+				
+				List<STDDTO> listdel = dao.list();
+				
+				request.setAttribute("listdel", listdel);			
+				request.getRequestDispatcher("delete.jsp").forward(request, response);
+			
 			}
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			response.sendRedirect("error.html");
