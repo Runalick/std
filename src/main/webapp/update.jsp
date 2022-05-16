@@ -14,25 +14,19 @@
 			<th colspan=8>Student List
 		</tr>
 		<tr>
-			<td>Ranking
 			<td>Id
 			<td>Name
 			<td>Kor
 			<td>Eng
 			<td>Math
-			<td>Sum
-			<td>Avg
 		</tr>	
-		<c:forEach var="i" items="${list}">
+		<c:forEach var="i" items="${list }">
 			<tr>
-				<td>${i.rank}
-				<td>${i.sid}
-				<td>${i.name}
-				<td>${i.kor}
-				<td>${i.eng}
-				<td>${i.math}
-				<td>${i.sum}
-				<td>${i.avg}
+				<td align=center>${i.id }
+				<td align=center>${i.name }
+				<td align=center>${i.kor }
+				<td align=center>${i.eng }
+				<td align=center>${i.math }
 			</tr>
 		</c:forEach>
 		<form action="/update.std">
