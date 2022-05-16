@@ -26,7 +26,7 @@
 		<c:forEach var="i" items="${list}">
 			<tr>
 				<td>${i.rank}
-				<td>${i.sid}
+				<td>${i.id}
 				<td>${i.name}
 				<td>${i.kor}
 				<td>${i.eng}
@@ -37,7 +37,7 @@
 		</c:forEach>
 		<form action="UpdateServlet">
 			<tr>
-				<td colspan=8><input type="text" placeholder="Input Id to Update" name="updateId" width="100%">
+				<td colspan=8><input type="text" placeholder="Input Id to Update" name="sid" width="100%">
 			</tr>
 			<tr>
 				<td colspan=8><input type="text" placeholder="Input name" name="name">

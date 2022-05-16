@@ -27,7 +27,7 @@
 		<c:forEach var="i" items="${listdel}" varStatus="status">
 			<tr>
 				<td>${status.count}
-				<td>${i.sid }
+				<td>${i.id }
 				<td>${i.name }
 				<td>${i.kor }
 				<td>${i.eng }
