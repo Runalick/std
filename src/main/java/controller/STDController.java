@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import dao.STDDAO;
 import dto.STDDTO;
 
+
 @WebServlet("*.std")
 public class STDController extends HttpServlet {
 	
@@ -31,7 +32,8 @@ public class STDController extends HttpServlet {
 				List<STDDTO> list =  dao.list();
 				request.setAttribute("list", list);
 				
-				request.getRequestDispatcher("/update.jsp");
+
+				request.getRequestDispatcher("/update.jsp").forward(request, response);
 			}else if(uri.equals("/update.std")) {
 				int sid = Integer.parseInt(request.getParameter("sid"));
 				String name = request.getParameter("name");
@@ -61,6 +63,8 @@ public class STDController extends HttpServlet {
 				request.getRequestDispatcher("delete.jsp").forward(request, response);
 			
 			}
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			response.sendRedirect("error.html");
