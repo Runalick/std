@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.STDDAO;
 import dto.STDDTO;
-import dto.StudentDTO;
 
 @WebServlet("*.std")
 public class STDController extends HttpServlet {
@@ -28,10 +27,19 @@ public class STDController extends HttpServlet {
 				dao.insert(new STDDTO(0, name, kor, eng, math, null));
 				response.sendRedirect("index.jsp");
 				
+
 			} else if (uri.equals("/list.std")) {
 				List<STDDTO> list = dao.list();
 				request.setAttribute("list", list);
 				request.getRequestDispatcher("listView.jsp").forward(request, response);
+
+			}else if (uri.equals("/delete.std")) {
+				
+				int sid = Integer.parseInt(request.getParameter("sid"));
+
+				dao.del(sid);
+				response.sendRedirect("/index.jsp");
+				
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
