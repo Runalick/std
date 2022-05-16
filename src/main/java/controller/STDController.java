@@ -25,6 +25,13 @@ public class STDController extends HttpServlet {
 				dao.insert(new STDDTO(0, name, kor, eng, math, null));
 				response.sendRedirect("index.jsp");
 				
+			}else if (uri.equals("/delete.std")) {
+				
+				int sid = Integer.parseInt(request.getParameter("sid"));
+
+				dao.del(sid);
+				response.sendRedirect("/index.jsp");
+				
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
