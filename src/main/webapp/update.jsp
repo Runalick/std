@@ -35,9 +35,9 @@
 				<td>${i.avg}
 			</tr>
 		</c:forEach>
-		<form action="UpdateServlet">
+		<form action="/update.std">
 			<tr>
-				<td colspan=8><input type="text" placeholder="Input Id to Update" name="updateId" width="100%">
+				<td colspan=8><input type="text" placeholder="Input Id to Update" name="sid" width="100%">
 			</tr>
 			<tr>
 				<td colspan=8><input type="text" placeholder="Input name" name="name">
